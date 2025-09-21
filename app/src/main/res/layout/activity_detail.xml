@@ -1,0 +1,107 @@
+<!-- Id referenced in Detail activity -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="0dp">
+
+    <!-- FrameLayout to hold background image and content -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Background image -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/fondo_app2"
+            android:scaleType="centerCrop"
+            android:contentDescription="Fondo2"/>
+
+        <!-- Content above background -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Character image -->
+            <ImageView
+                android:id="@+id/ivCharacterDetail"
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="Imagen del personaje"/>
+
+            <!-- Character name -->
+            <TextView
+                android:id="@+id/tvNameDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="12dp"/>
+
+            <!-- Character status -->
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Character species -->
+            <TextView
+                android:id="@+id/tvSpecies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Character gender -->
+            <TextView
+                android:id="@+id/tvGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Character origin -->
+            <TextView
+                android:id="@+id/tvOrigin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Character location -->
+            <TextView
+                android:id="@+id/tvLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="4dp"/>
+
+            <!-- Back button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnVolver"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:textSize="30sp"
+                android:text="Morty, We’re Leaving"
+                android:layout_marginTop="22dp"
+                android:textColor="@android:color/white"
+                app:backgroundTint="#C2185B"
+                app:cornerRadius="12dp"/>
+
+        </LinearLayout>
+    </FrameLayout>
+</ScrollView>
