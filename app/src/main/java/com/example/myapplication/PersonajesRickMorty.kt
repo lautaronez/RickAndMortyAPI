@@ -3,10 +3,9 @@ package com.example.myapplication
 import com.google.gson.annotations.SerializedName
 
 data class PersonajesRickMorty(
-    val results: List<Personaje> // List of characters returned by the API
+    val results: List<Personaje>
 )
 
-// Data class representing a single character
 data class Personaje(
     @SerializedName("id")
     val id: Int,
@@ -28,13 +27,11 @@ data class Personaje(
     val location: Location
 )
 
-// Data class representing the origin of the character
 data class Origen(
     val name: String,
     val url: String
 )
 
-// Data class representing the last known location of the character
 data class Location(
     val name: String,
     val url: String

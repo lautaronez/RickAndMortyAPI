@@ -1,39 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:padding="8dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
 
-
-    <!-- Character image -->
     <ImageView
         android:id="@+id/ivCharacter"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop" />
 
-
-    <!-- Container for character text info -->
     <LinearLayout
         android:orientation="vertical"
         android:paddingStart="8dp"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content">
 
-        <!-- Character name -->
         <TextView
             android:id="@+id/tvName"
-            android:textSize="32sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <!-- Character species -->
+            android:layout_height="wrap_content" />
+
         <TextView
             android:id="@+id/tvSpecies"
-            android:textSize="30sp"
+            android:textSize="14sp"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivFavorite"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/fav"
+        android:contentDescription="Favorito" />
 </LinearLayout>

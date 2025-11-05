@@ -2,22 +2,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Background image, entire screen -->
+    <!-- Fondo -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/fondo_app"
         android:scaleType="centerCrop"
-        android:contentDescription="Fondo"/>
+        android:contentDescription="Fondo" />
 
-    <!-- Content top -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <!-- Search bar container -->
+        <!-- Barra de búsqueda -->
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -25,7 +24,6 @@
             android:padding="12dp"
             android:background="@drawable/bg_search_bar">
 
-            <!-- Input field for character name search -->
             <EditText
                 android:id="@+id/etSearch"
                 android:layout_width="0dp"
@@ -36,9 +34,8 @@
                 android:textColor="@color/white"
                 android:textSize="27sp"
                 android:background="@android:color/transparent"
-                android:padding="16dp"/>
+                android:padding="16dp" />
 
-            <!-- Search image button) -->
             <ImageButton
                 android:id="@+id/btnSearch"
                 android:layout_width="72dp"
@@ -47,27 +44,39 @@
                 android:background="@drawable/bg_lupa"
                 android:contentDescription="Search"
                 android:scaleType="centerInside"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical" />
         </LinearLayout>
 
-        <!-- Message displayed if no characters are found -->
+        <!-- Botón de Favoritos -->
+        <ImageButton
+            android:id="@+id/btnFavoritos"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/fav_lleno"
+            android:background="@android:color/transparent"
+            android:contentDescription="Ver favoritos"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Mensaje de error -->
         <TextView
             android:id="@+id/tvNoResults"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="¡Oops! No se encontraron personajes… \nNi siquiera \nMr. Meeseeks"
-            android:textSize="54sp"
+            android:text="¡Oops! No se encontraron personajes…"
+            android:textSize="32sp"
             android:textStyle="bold"
             android:gravity="center"
             android:visibility="gone"
-            android:layout_marginTop="50dp"
-            android:textColor="@color/white"/>
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white" />
 
-        <!-- RecyclerView to display the list of characters -->
+        <!-- Lista de personajes -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPersonajes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="Lista de personajes de Rick and Morty"/>
+            android:contentDescription="Lista de personajes" />
     </LinearLayout>
 </FrameLayout>

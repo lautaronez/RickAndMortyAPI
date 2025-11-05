@@ -8,41 +8,55 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-
-// Adapter class to bind a list of characters to a RecyclerView
 class CharacterAdapter(
-    private val characters: List<Personaje>,
-    private val onClick: (Personaje) -> Unit
+    private val characters: MutableList<Personaje>,
+    private var favoritosIds: MutableList<Int> = mutableListOf(),
+    private val onClick: (Personaje) -> Unit,
+    private val onFavoriteClick: (Personaje) -> Unit
 ) : RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
 
-    // ViewHolder class to hold references to the item views
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivCharacter: ImageView = view.findViewById(R.id.ivCharacter)
         val tvName: TextView = view.findViewById(R.id.tvName)
         val tvSpecies: TextView = view.findViewById(R.id.tvSpecies)
+        val ivFavorite: ImageView = view.findViewById(R.id.ivFavorite)
     }
 
-    // Inflate the item layout and create a ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_character, parent, false)
         return ViewHolder(view)
     }
 
-    // Return the total number of items in the list
     override fun getItemCount() = characters.size
 
-    // Bind data from a character object to the item views
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val character = characters[position]
-        // Set character name and species
-        holder.tvName.text = character.name
-        holder.tvSpecies.text = character.species
+        val c = characters[position]
+        holder.tvName.text = c.name
+        holder.tvSpecies.text = c.species
+        Glide.with(holder.itemView.context).load(c.image).into(holder.ivCharacter)
 
-        // Load character image
-        Glide.with(holder.itemView).load(character.image).into(holder.ivCharacter)
+        // Cambia el ícono según si es favorito
+        val esFav = favoritosIds.contains(c.id)
+        holder.ivFavorite.setImageResource(
+            if (esFav) R.drawable.fav_lleno else R.drawable.fav
+        )
 
-        //Listener clic
-        holder.itemView.setOnClickListener { onClick(character) }
+        holder.itemView.setOnClickListener { onClick(c) }
+        holder.ivFavorite.setOnClickListener { onFavoriteClick(c) }
+    }
+
+    // --- helpers para actualizar datos sin recrear adapter ---
+    fun updateCharacters(newList: List<Personaje>) {
+        characters.clear()
+        characters.addAll(newList)
+        notifyDataSetChanged()
+    }
+
+    fun updateFavoritosIds(newFavs: List<Int>) {
+        favoritosIds.clear()
+        favoritosIds.addAll(newFavs)
+        notifyDataSetChanged()
     }
 }
+
